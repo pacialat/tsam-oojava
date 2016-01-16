@@ -2,10 +2,21 @@
 public class Dipendente {
 	String nome;
 	String cognome;
-	int anzianita;
-	String contratto;
+	ContrattoLavoro contrattolavoro; //aggregazione
 	
-	int sommastipendi(){
-		for(int element: Dipendente)
+	void setNome(String n){
+		nome = n;
+	}
+	
+	public String getNome(){
+		return nome;
+	}
+	
+	void setCognome(String c){
+		cognome = c;
+	}
+	
+	public String getCognome(){
+		return cognome;
 	}
 }
