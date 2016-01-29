@@ -7,9 +7,16 @@ public class Portonavale {
 	
 	
 	
+	private Invasore[] invasori;
 	
 	
-	
+	public Invasore[] getInvasori() {
+		return invasori;
+	}
+
+	public void setInvasori(Invasore[] invasori) {
+		this.invasori = invasori;
+	}
 	
 	
 	public String getNome() {
@@ -29,5 +36,28 @@ public class Portonavale {
 	}
 	public void setMetriquadri(int metriquadri) {
 		this.metriquadri = metriquadri;
+	}
+	
+	
+	
+	
+	
+	
+	public int attacco(){
+		int totmetri = metriquadri;
+		for (Invasore inv: invasori){
+			int dannometri = (int) (inv.calcolopotenzafuoco() * 1.5);
+			totmetri -= dannometri;
+		}
+		setMetriquadri(totmetri);
+		return totmetri;
+	}
+	
+	public String portodistrutto(){
+		if (getMetriquadri() <= 0){
+			return "Il porto navale è distrutto";
+		} else {
+			return "Il porto navale è ancora intero";
+		}
 	}
 }
